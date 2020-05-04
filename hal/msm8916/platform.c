@@ -1077,6 +1077,11 @@ void platform_set_echo_reference(struct audio_device *adev, bool enable,
                  (snd_device == SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT))
             strlcpy(my_data->ec_ref_mixer_path, "vbat-speaker echo-reference",
                 sizeof(my_data->ec_ref_mixer_path));
+#ifdef RECORD_PLAY_CONCURRENCY
+        else if ((snd_device == SND_DEVICE_OUT_VOIP_SPEAKER))
+            strlcpy(my_data->ec_ref_mixer_path, "echo-reference-voip",
+                sizeof(my_data->ec_ref_mixer_path));
+#endif
         else
             strlcpy(my_data->ec_ref_mixer_path, "echo-reference",
                 sizeof(my_data->ec_ref_mixer_path));
