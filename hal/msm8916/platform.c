@@ -1082,6 +1082,9 @@ void platform_set_echo_reference(struct audio_device *adev, bool enable,
             strlcpy(my_data->ec_ref_mixer_path, "echo-reference-voip",
                 sizeof(my_data->ec_ref_mixer_path));
 #endif
+        else if ((snd_device == SND_DEVICE_OUT_SPEAKER))
+              strlcpy(my_data->ec_ref_mixer_path, "echo-reference smartpa",
+                sizeof(my_data->ec_ref_mixer_path));
         else
             strlcpy(my_data->ec_ref_mixer_path, "echo-reference",
                 sizeof(my_data->ec_ref_mixer_path));
